@@ -1,0 +1,23 @@
+# Core Dependencies
+pyside6>=6.5.0  # Modern UI framework
+pymongo>=4.4.0  # MongoDB driver
+mongoengine>=0.27.0  # MongoDB ODM
+
+# Security
+python-dotenv>=1.0.0  # Environment variable management
+bcrypt>=4.0.1  # Password hashing
+pyjwt>=2.8.0  # JWT token handling
+
+# Data Processing
+pandas>=2.0.0  # Data manipulation
+reportlab>=4.0.4  # PDF generation
+openpyxl>=3.1.2  # Excel file handling
+matplotlib>=3.7.1  # Data visualization
+
+# Testing and Development
+pytest>=7.4.0  # Unit testing
+pytest-qt>=4.2.0  # Qt-specific testing
+pytest-cov>=4.1.0  # Test coverage
+
+# Packaging
+pyinstaller>=5.13.0  # Application packaging
