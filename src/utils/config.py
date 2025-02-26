@@ -11,15 +11,18 @@ def get_database_url():
     """
     Get MongoDB connection URL from environment variables
     """
-    db_host = os.getenv('MONGODB_HOST', 'localhost')
-    db_port = os.getenv('MONGODB_PORT', '27017')
-    db_name = os.getenv('MONGODB_NAME', 'payroll_db')
-    db_user = os.getenv('MONGODB_USER')
-    db_pass = os.getenv('MONGODB_PASSWORD')
-    
-    if db_user and db_pass:
-        return f"mongodb://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
-    return f"mongodb://{db_host}:{db_port}/{db_name}"
+    # Use the direct connection string from .env file
+    connection_string = os.getenv('mongodbconnectionstring')
+    if not connection_string:
+        # Fallback to localhost if connection string is not provided
+        return "mongodb://localhost:27017/payroll_db"
+    return connection_string
+
+def get_database_name():
+    """
+    Get MongoDB database name from environment variables
+    """
+    return os.getenv('dbname', 'payrollms')
 
 def get_jwt_secret():
     """
