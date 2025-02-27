@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Qt, Signal
 
 class SidebarWidget(QWidget):
     # Signals for navigation

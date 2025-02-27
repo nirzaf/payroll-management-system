@@ -18,21 +18,15 @@ class MainWindow(QMainWindow):
         # Initialize stacked widget for different pages
         self.stacked_widget = QStackedWidget()
         
-        # Create and add widgets
-        self.login_widget = LoginWidget()
+        # Create and add dashboard widget
         self.dashboard_widget = DashboardWidget()
-        
-        self.stacked_widget.addWidget(self.login_widget)
         self.stacked_widget.addWidget(self.dashboard_widget)
         
-        # Set initial widget to login
-        self.stacked_widget.setCurrentWidget(self.login_widget)
+        # Set dashboard as the main widget
+        self.stacked_widget.setCurrentWidget(self.dashboard_widget)
         
         # Add stacked widget to layout
         self.layout.addWidget(self.stacked_widget)
-        
-        # Connect signals
-        self.login_widget.login_successful.connect(self.show_dashboard)
     
     def show_dashboard(self):
         """Switch to dashboard view after successful login"""
