@@ -1,6 +1,5 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide6.QtCore import Qt
-from .sidebar import SidebarWidget
 
 class DashboardWidget(QWidget):
     def __init__(self):
@@ -9,11 +8,7 @@ class DashboardWidget(QWidget):
     
     def setup_ui(self):
         # Create main layout
-        layout = QHBoxLayout(self)
-        
-        # Add sidebar
-        self.sidebar = SidebarWidget()
-        layout.addWidget(self.sidebar)
+        layout = QVBoxLayout(self)
         
         # Create content area
         content_widget = QWidget()
@@ -28,10 +23,6 @@ class DashboardWidget(QWidget):
         # Add content widget to main layout
         layout.addWidget(content_widget)
         
-        # Set layout stretch factors
-        layout.setStretch(0, 1)  # Sidebar takes 1 part
-        layout.setStretch(1, 4)  # Content takes 4 parts
-        
         # Set layout margins and spacing
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
+        layout.setContentsMargins(10, 10, 10, 10)
+        layout.setSpacing(10)

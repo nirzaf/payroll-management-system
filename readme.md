@@ -10,8 +10,7 @@ The system is designed to accomplish two primary objectives:
 - **Airline Ticketing Management:** Simplify the process for employees to claim airline tickets by automatically calculating pro-rata entitlements and determining cost splits between employee and employer (such as a 50/50 split for early ticket requests).
 
 #### Target Users
-- **Admin:** Manages system configurations, oversees sensitive data, and enforces compliance.
-- **Employee:** Accesses personal payroll and benefits information, views ticket entitlements, and initiates ticketing adjustments.
+- **Admin:** Manages system configurations, oversees sensitive data, and enforces compliance. Manage all employees data, Accesses personal payroll of each employees, and benefits information, views ticket entitlements, and initiates ticketing adjustments. generate payroll in bulk, generate and view report based on various parameters, and initiates adjustments.
 
 #### Key Business Challenges
 The system addresses several critical issues:
@@ -47,7 +46,6 @@ The system addresses several critical issues:
 A modular architecture is recommended with clearly defined components:
 - **Module Separation:** Divide the system into separate modules for employee management, payroll processing, reporting, and ticketing management.
 - **Interactions and Error Handling:** Establish clear data flows, standardized error handling, and strict input validation across modules.
-- **Security Policies:** Ensure that authentication and authorization are enforced consistently across all components.
 
 #### UI Layer
 - **Screen Integration:**  
@@ -72,7 +70,6 @@ The choice should be based on factors like widget richness, ease of maintenance,
 
 #### Database Integration
 - **MongoDB:** Emphasizes flexible, JSON-like models ideal for dynamic HR records.
-- **Relational Databases:** Consider if the application requires strict transactional integrity.
   
 #### Additional Tools and Libraries
 - **Reporting & Data Export:** Implement ReportLab for generating PDFs and Openpyxl for exporting data to Excel.

@@ -1,8 +1,9 @@
-from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QStackedWidget
+from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QStackedWidget, QHBoxLayout
 from PySide6.QtCore import Qt
 from .components.login import LoginWidget
 from .components.dashboard import DashboardWidget
 from .components.sidebar import SidebarWidget
+from .components.theme_manager import ThemeManager
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -13,7 +14,30 @@ class MainWindow(QMainWindow):
         # Create central widget and layout
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
-        self.layout = QVBoxLayout(self.central_widget)
+        self.layout = QHBoxLayout(self.central_widget)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.layout.setSpacing(0)
+        
+        # Create sidebar and theme manager
+        sidebar_container = QWidget()
+        sidebar_layout = QVBoxLayout(sidebar_container)
+        sidebar_layout.setContentsMargins(0, 0, 0, 0)
+        sidebar_layout.setSpacing(0)
+        
+        self.sidebar = SidebarWidget()
+        self.theme_manager = ThemeManager(self)
+        
+        sidebar_layout.addWidget(self.sidebar)
+        sidebar_layout.addStretch(1)
+        sidebar_layout.addWidget(self.theme_manager, 0, Qt.AlignCenter)
+        
+        # Add sidebar container to main layout
+        self.layout.addWidget(sidebar_container)
+        
+        # Create content area
+        content_container = QWidget()
+        content_layout = QVBoxLayout(content_container)
+        content_layout.setContentsMargins(0, 0, 0, 0)
         
         # Initialize stacked widget for different pages
         self.stacked_widget = QStackedWidget()
