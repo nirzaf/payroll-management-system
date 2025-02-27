@@ -52,3 +52,12 @@ class TicketEntitlement(BaseModel):
     claim_date: Optional[datetime]
     cost_share_employee: float = 0
     cost_share_company: float
+
+# Import document models
+from .documents import (
+    EmployeeDocument,
+    PayrollDocument,
+    AttendanceDocument,
+    BenefitDocument,
+    TicketEntitlementDocument
+)

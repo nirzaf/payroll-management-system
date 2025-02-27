@@ -12,7 +12,7 @@ def get_database_url():
     Get MongoDB connection URL from environment variables
     """
     # Use the direct connection string from .env file
-    connection_string = os.getenv('mongodbconnectionstring')
+    connection_string = os.getenv('mongodconnectionstring')
     if not connection_string:
         # Fallback to localhost if connection string is not provided
         return "mongodb://localhost:27017/payroll_db"
